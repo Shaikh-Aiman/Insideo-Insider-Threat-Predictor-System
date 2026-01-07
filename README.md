@@ -1,23 +1,21 @@
 # Insideo - Insider Threat Predictor System
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d68bfdc0-3be2-4b31-a74b-afc354f1abb5" alt="GUI Screenshot" width="700">
-</p>
+  <img src="https://github.com/user-attachments/assets/685d87c3-826a-4424-a62c-ce6c8e6ebacc" alt="GUI Screenshot">
+</p
 
 Insider Threat Predictor is a data-driven system that detects and analyzes potentially malicious or risky actions performed by internal users.  
 It aggregates user activity logs, extracts behavioral features, and assigns risk scores to security-relevant events.  
 The system employs unsupervised anomaly detection and LSTM-based temporal modeling to surface unusual behavior and potential risks.  
 An interactive GUI provides visualization, incident review, and exportable reports for analyst workflows.
 
----
+
 
 ### Project Objective:
 The primary objective of the INSIDEO – Insider Threat Predictor project is to design and implement a comprehensive system for analyzing internal user activities and identifying potential insider security risks within an organizational environment. The project focuses on collecting and aggregating user activity logs, extracting meaningful behavioral features, and evaluating user actions through rule-based risk scoring and machine learning–based anomaly detection techniques. To support deeper analysis, the system incorporates sequential behavior modeling to study user activity trends over time and highlight risky behavioral patterns. Additionally, the project aims to provide an interactive, SOC-style graphical interface that enables analysts to visualize risk scores, detected anomalies, and MITRE ATT&CK mappings, as well as export risk tables, anomaly reports, and analytical results in standard formats for further investigation, documentation, and reporting purposes.
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/685d87c3-826a-4424-a62c-ce6c8e6ebacc" alt="GUI Screenshot">
-</p>
 
 
----
+
+
 
 ### Modules:
 - **Data Ingestion & Aggregation** — Load CSV logs or generate synthetic samples and compute per-user, per-day aggregates.  
@@ -28,7 +26,6 @@ The primary objective of the INSIDEO – Insider Threat Predictor project is to 
 - **Visualization & Reporting** — Generate charts, tables, MITRE heatmaps, and exportable CSV/HTML reports.  
 - **Utilities & UI** — Threading, file dialogs, logging, and a Tkinter GUI that ties the flow together.
 
----
 
 ### Files Description:
 - `main.py` — Main application entry point and GUI controller.  
@@ -41,7 +38,7 @@ The primary objective of the INSIDEO – Insider Threat Predictor project is to 
 - `dist/` (not committed) — Contains compiled executable (distributed via Releases).  
 - `build/` (not committed) — PyInstaller intermediate artifacts (optional, for debugging/build reproduction).
 
----
+
 
 ### Installation:
 To run this project locally, follow these steps:
@@ -73,8 +70,10 @@ cd Insideo-Insider-Threat-Predictor-System
 - Advanced analysis can be performed by training an LSTM model on historical behavioral sequences to evaluate temporal behavior trends and classify insider risk levels.
 - The entire process is controlled through an interactive GUI, enabling monitoring, analysis, and reporting in a structured workflow.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/7c237200-de3f-4886-bd16-0d1fc6fbcb80" alt="GUI Screenshot">
+  <img 
+    src="https://github.com/user-attachments/assets/7c237200-de3f-4886-bd16-0d1fc6fbcb80" alt="GUI Screenshot" width="600">
 </p>
+
 
 
 ---
