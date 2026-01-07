@@ -18,25 +18,25 @@ The primary objective of the INSIDEO – Insider Threat Predictor project is to 
 
 
 ### Modules:
-- **Data Ingestion & Aggregation** — Load CSV logs or generate synthetic samples and compute per-user, per-day aggregates.  
-- **Feature Engineering** — Compute behavioral metrics (counts, time-of-day patterns, resource diversity, graph metrics).  
-- **Rule-Based Risk Scoring** — Apply weighted rules to events to compute base risk scores.  
-- **Anomaly Detection** — Use Isolation Forest to find users whose behavior deviates from the baseline.  
-- **Temporal Modeling** — Train and use an LSTM to analyze sequences of user behavior for trend-based risk prediction.  
-- **Visualization & Reporting** — Generate charts, tables, MITRE heatmaps, and exportable CSV/HTML reports.  
-- **Utilities & UI** — Threading, file dialogs, logging, and a Tkinter GUI that ties the flow together.
+- **Data Ingestion & Aggregation:** Load CSV logs or generate synthetic samples and compute per-user, per-day aggregates.  
+- **Feature Engineering:** Compute behavioral metrics (counts, time-of-day patterns, resource diversity, graph metrics).  
+- **Rule-Based Risk Scoring:** Apply weighted rules to events to compute base risk scores.  
+- **Anomaly Detection:** Use Isolation Forest to find users whose behavior deviates from the baseline.  
+- **Temporal Modeling:** Train and use an LSTM to analyze sequences of user behavior for trend-based risk prediction.  
+- **Visualization & Reporting:** Generate charts, tables, MITRE heatmaps, and exportable CSV/HTML reports.  
+- **Utilities & UI:** Threading, file dialogs, logging, and a Tkinter GUI that ties the flow together.
 
 
 ### Files Description:
-- `main.py` — Main application entry point and GUI controller.  
-- `INSIDEO.spec` — PyInstaller build configuration (keeps build settings reproducible).  
-- `exe_logo.ico` — Application icon used when building the executable.  
-- `assets/` — Images and static resources used by the GUI and documentation (screenshots, logos).  
-- `docs/INSIDEO_Project_Report.pdf` — Full project report and documentation (stored in `docs/`).  
-- `Visual_Overview.md` — GUI walkthrough and visual guide (placed at repository root).  
-- `.gitignore` — Excludes build artifacts (`dist/`, `build/`, caches) from the repository.  
-- `dist/` (not committed) — Contains compiled executable (distributed via Releases).  
-- `build/` (not committed) — PyInstaller intermediate artifacts (optional, for debugging/build reproduction).
+- `main.py`: Main application entry point and GUI controller.  
+- `INSIDEO.spec`: PyInstaller build configuration (keeps build settings reproducible).  
+- `exe_logo.ico`: Application icon used when building the executable.  
+- `assets/`: Images and static resources used by the GUI and documentation (screenshots, logos).  
+- `docs/INSIDEO_Project_Report.pdf`: Full project report and documentation (stored in `docs/`).  
+- `Visual_Overview.md`: GUI walkthrough and visual guide (placed at repository root).  
+- `.gitignore`: Excludes build artifacts (`dist/`, `build/`, caches) from the repository.  
+- `dist/` (not committed): Contains compiled executable (distributed via Releases).  
+- `build/` (not committed): PyInstaller intermediate artifacts (optional, for debugging/build reproduction).
 
 
 
@@ -92,16 +92,16 @@ __Release Link:__
 
 ---
 ### Usage of All Buttons (GUI):
-- **Load CSV / Generate Sample** : Load real log data or create synthetic data for testing.  
-- **Recompute Aggregates / Compute Enriched** : Re-aggregate events and compute behavioral features for analysis.  
-- **Run Event Processor** : Execute rule-based risk scoring and generate incident entries.  
-- **Run Isolation Forest** : Perform unsupervised anomaly detection and list anomalous users.  
-- **Train LSTM** : Train the temporal model with a user-defined lookback window for predictive analysis.  
-- **Predict Insider Risk** : Use the trained model to classify users and flag predicted high-risk behavior.  
-- **Show Risk Chart / Show Risk Table** : Visualize risk distribution and inspect per-user scores.  
-- **Show MITRE Heatmap** : View mapping of detected events to MITRE ATT&CK tactics/techniques.  
-- **Export (CSV/HTML)** : Export risk tables, anomaly reports, and incidents for documentation or sharing.  
-- **Clear Data** : Reset the application state and remove loaded data and model outputs.
+- **Load CSV / Generate Sample:** Load real log data or create synthetic data for testing.  
+- **Recompute Aggregates / Compute Enriched:** Re-aggregate events and compute behavioral features for analysis.  
+- **Run Event Processor:** Execute rule-based risk scoring and generate incident entries.  
+- **Run Isolation Forest:** Perform unsupervised anomaly detection and list anomalous users.  
+- **Train LSTM:** Train the temporal model with a user-defined lookback window for predictive analysis.  
+- **Predict Insider Risk:** Use the trained model to classify users and flag predicted high-risk behavior.  
+- **Show Risk Chart / Show Risk Table:** Visualize risk distribution and inspect per-user scores.  
+- **Show MITRE Heatmap:** View mapping of detected events to MITRE ATT&CK tactics/techniques.  
+- **Export (CSV/HTML):** Export risk tables, anomaly reports, and incidents for documentation or sharing.  
+- **Clear Data:** Reset the application state and remove loaded data and model outputs.
 
 ---
 
