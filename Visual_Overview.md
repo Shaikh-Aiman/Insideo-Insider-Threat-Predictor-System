@@ -40,7 +40,7 @@ The GUI is designed to simulate a Security Operations Center (SOC) environment, 
 
 This screen represents the packaged Windows executable generated using PyInstaller. The executable allows the system to run independently without requiring a Python environment, making deployment and demonstration easier.
 
-<img width="846" height="858" alt="image" src="https://github.com/user-attachments/assets/3d633cfe-7f08-45fa-9779-b2dfda3c6611" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/3d633cfe-7f08-45fa-9779-b2dfda3c6611" />
 
 ### Main Screen
 
@@ -52,13 +52,13 @@ The main screen serves as the central control panel of the application. It provi
 
 This screen provides built-in guidance for users, explaining how to operate different controls within the system. It ensures usability for first-time users and reduces the learning curve when navigating the application.
 
-<img width="1384" height="1092" alt="image" src="https://github.com/user-attachments/assets/096855c6-b211-4f76-b5a0-b1da2cbe49f2" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/096855c6-b211-4f76-b5a0-b1da2cbe49f2" />
 
 ### About Me Screen
 
 The About section displays developer and project-related information. It provides context about the project origin, purpose, and contributor details, enhancing transparency and documentation quality.
 
-<img width="1539" height="1058" alt="image" src="https://github.com/user-attachments/assets/b4cd6e20-59df-4b14-a08e-bef43b92b367" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/b4cd6e20-59df-4b14-a08e-bef43b92b367" />
 
 ## HTML-Based Report View
 
@@ -76,31 +76,31 @@ The system also generates an HTML-based report for enhanced visualization and pr
 
 The Aggregates Controls module handles data ingestion and preprocessing. It allows users to load CSV files or generate sample data, compute per-user and per-day aggregates, derive enriched behavioral features, and reset data for fresh analysis cycles.
 
-<img width="1420" height="977" alt="image" src="https://github.com/user-attachments/assets/b0060c41-c7c9-4828-9ec7-4fd74e193f97" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/b0060c41-c7c9-4828-9ec7-4fd74e193f97" />
 
 ### Prediction Controls
 
 The Prediction Controls module applies rule-based logic to user events. It computes risk scores using predefined weights, identifies potential security incidents, and displays recent activity summaries for rapid assessment.
 
-<img width="1451" height="991" alt="image" src="https://github.com/user-attachments/assets/af430326-cb96-4e6e-b970-52a945705549" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/af430326-cb96-4e6e-b970-52a945705549" />
 
 ### Anomaly Detection Controls
 
 This module executes the Isolation Forest algorithm to identify users whose behavior deviates significantly from established patterns. It highlights anomalous users and provides export functionality for anomaly reports in CSV format.
 
-<img width="1444" height="997" alt="image" src="https://github.com/user-attachments/assets/a1a40249-29e3-4ac0-b942-7ea123f5f54d" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/a1a40249-29e3-4ac0-b942-7ea123f5f54d" />
 
 ### Risk Score Controls
 
 The Risk Score Controls module visualizes user risk levels through tables and charts. It also includes a MITRE ATT&CK heatmap to map detected activities to standardized attack techniques, supporting effective threat correlation and prioritization.
 
-<img width="1431" height="980" alt="image" src="https://github.com/user-attachments/assets/08ba6a06-9078-4d5f-984f-df2d97783e9c" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/08ba6a06-9078-4d5f-984f-df2d97783e9c" />
 
 ### Model Train Controls
 
 The Model Train Controls module supports advanced analysis using an LSTM-based model. Users can define a lookback window, train the model on historical behavior sequences, and generate predictions and alerts for high-risk users.
 
-<img width="1431" height="981" alt="image" src="https://github.com/user-attachments/assets/7bdc1a51-a065-41bf-9e18-63183c1a4973" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/7bdc1a51-a065-41bf-9e18-63183c1a4973" />
 
 ## Summary
 
