@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insider Threat Predictor</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f0f0f0;
+    color:#222;
+}
+
+.logo-container{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0a1f33 !important; 
+    z-index:9999;
+    animation: hide-container 1s ease forwards;
+    animation-delay:5s;
+}
+
+.logo{
+    width:120px;
+    height:120px;
+    background:#fff;
+    border-radius:50%;
+    background-image:url("https://media-exp1.licdn.com/dms/image/C560BAQF3H-o_kgtM7g/company-logo_200_200/0/1617643689348?e=2159024400&v=beta&t=Z74oD3gvFuUf98Bi2df7TpGSwCtBP3EK3Kmv4dYv-Bs");
+    background-size:cover;
+    background-position:center;
+    animation: logo-animate 4s ease forwards;
+}
+
+@keyframes logo-animate{
+    0%{transform:scale(0.7);opacity:0}
+    20%{opacity:1}
+    60%{transform:scale(1.15)}
+    100%{transform:scale(0);opacity:0}
+}
+
+@keyframes hide-container{
+    to{opacity:0;visibility:hidden}
+}
+
+.container{
+    max-width:1200px;
+    margin:50px auto;
+    padding:20px;
+}
+
+.section{
+    background:#fff;
+    padding:25px;
+    margin-bottom:30px;
+    border-radius:10px;
+    animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+h1,h2{
+    font-family:'Montserrat',sans-serif;
+    color:#1e3d58;
+}
+
+h1{text-align:center;margin-bottom:40px}
+
+p{line-height:1.7}
+ul,ol{padding-left:22px}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #ccc;
+    text-align:left;
+}
+
+th{
+    background:#1e3d58;
+    color:#fff;
+}
+
+.medium td{background:#fff3cd}
+.high td{background:#ffe0b2}
+.critical td{background:#ffd6d9}
+
+tr:hover td{
+    background:#eef6ff;
+    transition:0.3s;
+}
+
+.mitre-table th{
+    background:#f0f0f0;
+    color:#000;
+    font-weight:bold;
+}
+
+.mitre-table td{
+    background:#fff;
+}
+
+.company-logo{
+    width:100%;
+    height:200px;
+    background-image:url(https://media-exp1.licdn.com/dms/image/C560BAQF3H-o_kgtM7g/company-logo_200_200/0/1617643689348?e=2159024400&v=beta&t=Z74oD3gvFuUf98Bi2df7TpGSwCtBP3EK3Kmv4dYv-Bs);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color:white;
+    margin-bottom:20px;
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.company-logo-link:hover .company-logo {
+    filter: drop-shadow(0 0 18px rgba(30, 61, 88, 0.8))
+            drop-shadow(0 0 36px rgba(30, 61, 88, 0.6));
+    transform: scale(1.03);
+}
+
+
+.company-logo-link {
+    display: block;
+    text-decoration: none;
+}
+
+.insideo-header {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: radial-gradient(circle at top, #1e3d58, #020b14);
+    border-bottom: 2px solid #1e3d58;
+}
+
+
+.insideo-logo {
+    width: 600px;              
+    height: auto;             
+    max-width: 65vw;         
+    margin: 0 auto 10px;
+    display: block;
+
+    filter: drop-shadow(0 0 25px rgba(30, 61, 88, 0.8));
+    animation: softGlow 3s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+    0% {
+        filter: drop-shadow(0 0 18px rgba(30, 61, 88, 0.6));
+    }
+    50% {
+        filter: drop-shadow(0 0 36px rgba(30, 61, 88, 0.95));
+    }
+    100% {
+        filter: drop-shadow(0 0 18px rgba(30, 61, 88, 0.6));
+    }
+}
+
+
+.insideo-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.6rem;
+    letter-spacing: 3px;
+    margin: 0;
+    color: #eafcff;
+}
+
+.insideo-title span {
+    display: block;
+    margin-top: 8px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #7fdcff;
+}
+
+@keyframes logoGlow {
+    0% {
+        filter: drop-shadow(0 0 12px rgba(0, 200, 255, 0.4));
+    }
+    50% {
+        filter: drop-shadow(0 0 28px rgba(0, 200, 255, 0.9));
+    }
+    100% {
+        filter: drop-shadow(0 0 12px rgba(0, 200, 255, 0.4));
+    }
+}
+
+.earth-section {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 30px;
+}
+
+.earth {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+
+    background: radial-gradient(
+        circle at 30% 30%,
+        #2b5876 0%,
+        #1e3d58 40%,
+        #0a1f33 70%,
+        #020b14 100%
+    );
+
+    box-shadow:
+        0 0 40px rgba(0, 200, 255, 0.55),
+        0 0 90px rgba(0, 200, 255, 0.35),
+        inset 0 0 80px rgba(30, 90, 140, 0.95);
+
+    animation: globeGlow 4s ease-in-out infinite;
+}
+
+.earth::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url('https://i.postimg.cc/9QCCCVsQ/earth.png');
+    background-repeat: repeat-x;
+    background-size: cover;
+
+    opacity: 0.95;
+    animation: earthRotate 90s linear infinite;
+}
+
+@keyframes earthRotate {
+    from { background-position: 0 0; }
+    to   { background-position: -200% 0; }
+}
+
+@keyframes globeGlow {
+    0% {
+        box-shadow:
+            0 0 35px rgba(0, 200, 255, 0.45),
+            0 0 70px rgba(0, 200, 255, 0.25),
+            inset 0 0 70px rgba(30, 90, 140, 0.9);
+    }
+    50% {
+        box-shadow:
+            0 0 55px rgba(0, 200, 255, 0.8),
+            0 0 120px rgba(0, 200, 255, 0.55),
+            inset 0 0 90px rgba(50, 120, 180, 1);
+    }
+    100% {
+        box-shadow:
+            0 0 35px rgba(0, 200, 255, 0.45),
+            0 0 70px rgba(0, 200, 255, 0.25),
+            inset 0 0 70px rgba(30, 90, 140, 0.9);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="logo-container">
+    <div class="logo"></div>
+</div>
+
+<header class="insideo-header">
+    <img src="Sidebar_LOGO.jpg" class="insideo-logo">
+         alt="INSIDEO Logo"
+         class="insideo-logo">
+</header>
+
+<div class="container">
+
+<h1>INSIDEO - Insider Threat Predictor</h1>
+
+<div class="section">
+<h2>Definition</h2>
+<p>
+Insider Threat Predictor is a data-driven security system designed to identify and analyze potentially malicious or risky activities performed by internal users. It leverages log aggregation, behavioral feature engineering, anomaly detection, and risk scoring techniques to detect deviations from normal behavior. The system supports predictive analytics and visualization to proactively mitigate insider threats in organizational environments.
+</p>
+</div>
+
+<section class="section">
+    <section class="section">
+    <h2>Core Features</h2>
+
+    <ol class="steps">
+        <li>
+            <p>
+                <strong>User Activity Aggregation</strong><br>
+                Collects and aggregates user activity logs such as login attempts, file access, and data transfers on a per-user, per-day basis. 
+                This aggregation helps establish individual behavioral baselines for accurate insider threat analysis.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Behavioral Feature Engineering</strong><br>
+                Extracts meaningful statistical and temporal features including event frequency, resource diversity, failed login counts, 
+                and deviations from historical behavior to characterize user activity patterns.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Anomaly Detection using Machine Learning</strong><br>
+                Applies unsupervised machine learning models such as Isolation Forest to identify abnormal user behavior that deviates 
+                significantly from established norms without requiring labeled attack data.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Risk Scoring Engine</strong><br>
+                Dynamically computes user risk scores using weighted security-relevant actions and predefined threat rules, 
+                enabling continuous assessment of insider threat levels.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Incident Detection and Logging</strong><br>
+                Automatically flags high-risk users, generates security incidents when thresholds are exceeded, 
+                and maintains detailed audit logs to support investigation and forensic analysis.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Interactive Visualization Dashboard</strong><br>
+                Provides an intuitive SOC-style graphical interface with charts, tables, and pop-up controls 
+                for monitoring risks, anomalies, alerts, and overall system status in real time.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Scalable and Modular Architecture</strong><br>
+                Designed with modular components for data ingestion, analytics, and visualization, 
+                allowing easy extension with advanced models, new data sources, or additional security modules.
+            </p>
+        </li>
+    </ol>
+</section>
+
+<div class="section">
+<h2>Suspicious Activity Risk Scoring</h2>
+<table>
+<tr><th>Suspicious Activity</th><th>Risk Score</th><th>Description</th></tr>
+<tr><td>file_read</td><td>1</td><td>Normal data access</td></tr>
+<tr><td>login_fail</td><td>2</td><td>Repeated authentication failures</td></tr>
+<tr class="medium"><td>file_write</td><td>3</td><td>File modification</td></tr>
+<tr class="medium"><td>file_download</td><td>5</td><td>Possible data staging</td></tr>
+<tr class="medium"><td>after_hours_login</td><td>5</td><td>Login outside business hours</td></tr>
+<tr class="high"><td>login_from_unusual_ip</td><td>8</td><td>Credential misuse suspicion</td></tr>
+<tr class="high"><td>file_delete</td><td>10</td><td>Data destruction risk</td></tr>
+<tr class="critical"><td>system_config_change</td><td>12</td><td>Defense evasion attempt</td></tr>
+<tr class="critical"><td>data_copy_to_usb</td><td>15</td><td>High-risk data exfiltration</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>MITRE ATT&CK Mapping</h2>
+<table class="mitre-table">
+<tr><th>Event</th><th>Tactic</th><th>Technique</th></tr>
+<tr><td>login_fail</td><td>Credential Access</td><td>Brute Force (T1110)</td></tr>
+<tr><td>login_success</td><td>Credential Access</td><td>Valid Accounts (T1078)</td></tr>
+<tr><td>file_read</td><td>Collection</td><td>Data from Local System (T1005)</td></tr>
+<tr><td>file_download</td><td>Exfiltration</td><td>Exfiltration Over Network (T1041)</td></tr>
+<tr><td>data_copy_to_usb</td><td>Exfiltration</td><td>Exfiltration to Removable Media</td></tr>
+<tr><td>system_config_change</td><td>Defense Evasion</td><td>Modify System Configuration</td></tr>
+</table>
+</div>
+
+<section class="section">
+    <h2>How To Operate</h2>
+
+    <ol class="steps">
+        <li>
+            <p>
+                <strong>Launch the Application</strong><br>
+                Run <code>main.py</code>.  
+                The Insider Threat Predictor dashboard opens with the home screen and sidebar.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Load or Generate Data</strong><br>
+                Load a real-world CSV event log or generate a synthetic sample dataset to simulate insider activity for testing and validation.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Recompute Aggregates</strong><br>
+                Aggregate user activities on a per-user, per-day basis to build behavioral baselines.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Compute Enriched Features</strong><br>
+                Temporal, behavioral, statistical, and graph-based features are calculated to enhance detection accuracy.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Run Risk Scoring and Anomaly Detection</strong><br>
+                Rule-based risk scoring is applied, and the Isolation Forest model detects anomalous user behavior.
+                Detected events are mapped to the MITRE ATT&CK framework and visualized using a heat map.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Train LSTM Model (User-Defined Lookback)</strong><br>
+                Select the number of lookback days and train the LSTM model to learn historical behavior patterns.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Insider Risk Prediction using LSTM</strong><br>
+                The trained LSTM model predicts insider risk probabilities, classifies users, and generates alerts for high-risk behavior.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Results Visualization and Export</strong><br>
+                Risk scores, anomaly reports, and LSTM alerts are displayed through tables and charts.
+                Reports can be exported as CSV files for further analysis or documentation.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Clear Data and Reset System</strong><br>
+                Clear all loaded data, model outputs, and internal states to reset the system for a fresh analysis cycle.
+            </p>
+        </li>
+    </ol>
+</section>
+
+<section class="section">
+    <h2>Technologies & Libraries Used</h2>
+
+    <ol class="steps">
+        <li>
+            <p>
+                <strong>threading</strong><br>
+                Used to run time-consuming tasks such as event processing, Isolation Forest execution, and LSTM training in parallel,
+                ensuring the Tkinter GUI remains responsive without freezing during heavy computations.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>traceback</strong><br>
+                Captures and displays detailed error stack traces during runtime exceptions, allowing graceful debugging
+                without crashing the application.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>datetime</strong><br>
+                Handles timestamp parsing, event ordering, daily aggregation, and incident logging to enable
+                time-based behavioral analysis.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>tkinter</strong><br>
+                Builds the complete desktop-based SOC-style graphical interface including dashboards, popups,
+                buttons, and layout components.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>tkinter.ttk</strong><br>
+                Provides advanced widgets such as Treeview tables, scrollbars, and structured layouts
+                for improved visualization and usability.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>tkinter.filedialog</strong><br>
+                Enables loading CSV datasets and exporting anomaly or risk reports without hardcoded file paths.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>tkinter.messagebox</strong><br>
+                Displays alerts, warnings, confirmations, and system status messages during application runtime.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>pandas</strong><br>
+                Performs data ingestion, cleaning, aggregation, feature engineering, and preparation of
+                structured inputs for machine learning models.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>numpy</strong><br>
+                Supports numerical operations, array manipulation, and efficient handling of
+                LSTM input sequences.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>random</strong><br>
+                Generates realistic synthetic insider threat datasets for testing,
+                experimentation, and validation.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>scikit-learn (Isolation Forest)</strong><br>
+                Performs unsupervised anomaly detection on aggregated user behavior features
+                to identify deviations from normal activity.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>scikit-learn (StandardScaler)</strong><br>
+                Normalizes numerical features to prevent scale bias
+                during anomaly detection and model evaluation.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>matplotlib</strong><br>
+                Generates visualizations such as risk score plots and
+                MITRE ATT&CK heat maps.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>matplotlib.backends.backend_tkagg</strong><br>
+                Embeds Matplotlib charts directly into the Tkinter GUI
+                for interactive visualization.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Pillow (PIL.Image, ImageTk)</strong><br>
+                Loads, resizes, and displays images such as logos
+                and home screen visuals within the GUI.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>TensorFlow / Keras (Sequential)</strong><br>
+                Builds and manages the deep learning architecture
+                used for insider threat prediction.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Keras LSTM Layer</strong><br>
+                Learns temporal behavior patterns from historical
+                user activity sequences.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Keras Dense Layer</strong><br>
+                Produces final probability scores indicating
+                insider threat likelihood.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Keras Dropout</strong><br>
+                Prevents overfitting and improves
+                model generalization.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>Keras Adam Optimizer</strong><br>
+                Optimizes LSTM training for faster
+                and stable convergence.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>os</strong><br>
+                Handles file existence checks, directory paths,
+                and report storage operations.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                <strong>networkx</strong><br>
+                Computes graph-based metrics such as user-resource
+                relationships and centrality scores.
+            </p>
+        </li>
+    </ol>
+</section>
+
+<div class="section">
+     <h2>Company Details</h2>
+<a href="https://www.suprajatechnologies.com" 
+   target="_blank" 
+   class="company-logo-link">
+    <div class="company-logo"></div>
+</a>
+<table>
+<tr><th>Details</th><th>Information</th></tr>
+<tr><td>Company Name</td><td>Supraja Technologies</td></tr>
+<tr><td>Location</td><td>Hyderabad, India</td></tr>
+<tr><td>Contact</td><td>contact@suprajatechnologies.com</td></tr>
+<tr><td>Linkedin</td><td>www.linkedin.com/company/suprajatechnologies/</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>Developer Details</h2>
+<p><b>Name:</b> Shaikh Aiman</p>
+<p><b>Employee ID:</b> AD23#ST#IS#7003 </p>
+<p><b>Email:</b> shaikh.aiman2712@gmail.com</p>
+<p><b>Github:</b> https://github.com/Shaikh-Aiman</p>
+<p><b>Linkedin:</b> www.linkedin.com/in/shaikh-aiman</p>
+</div>
+
+<div class="earth-section">
+    <div class="earth"></div>
+</div>
+
+</div>
+
+</body>
+</html>
