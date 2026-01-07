@@ -20,13 +20,13 @@ The flow chart illustrates the end-to-end execution pipeline of the Insider Thre
 
 The use case diagram represents the interaction between the analyst and the system. It highlights core functionalities such as loading logs, computing aggregates, running predictions, performing anomaly detection, training models, and exporting reports. This diagram provides a high-level view of system capabilities from a user perspective.
 
-<img width="1394" height="838" alt="image" src="https://github.com/user-attachments/assets/1a621772-3fdc-4152-a4ba-ddfc719a744e" />
+<img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/1a621772-3fdc-4152-a4ba-ddfc719a744e" />
 
 ## 3. Class Diagram
 
 The class diagram depicts the internal structure of the system, including data processing modules, machine learning components, visualization handlers, and GUI controllers. It shows how different classes interact to support aggregation, risk scoring, anomaly detection, and prediction workflows.
 
-<img width="1856" height="1004" alt="image" src="https://github.com/user-attachments/assets/d3327519-5075-48b3-860f-af68b7762b26" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/d3327519-5075-48b3-860f-af68b7762b26" />
 
 ---
 
